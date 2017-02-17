@@ -1,0 +1,122 @@
+doctype html
+html
+	head
+		title Equity calculator
+		meta(charset='utf-8')
+		link(rel='stylesheet', type='text/css', href='styles.css')
+		link(rel='stylesheet', type='text/css', href='simple-grid.min.css')
+		script(type='text/javascript', src='jquery-3.1.1.min.js')
+		script.
+			var strikePrice = "#{strikeprice}"
+			var nbOfShares = "#{nbofshares}"
+			var company_toupper = "#{company}"
+	body
+		header
+			.wrapper
+				h1 Compensation Calculator
+		.container
+			#instructions.row
+				.col-12
+					h2 How it works
+					p
+						| You can manipulate the values in the calculator below. This will help you estimate the value of your equity package based on various scenarios.
+					p Account for some dilution in future rounds of funding.
+					p
+						| Please note that this document is not a guarantee of anything, it is only a tool to help you estimate the potential value of your equity.
+					p
+						| This tool doesn't account for taxes, and we cannot give you financial advice on that matter; for that, you should consult with a specialist.
+					p This document is confidential and for your personal use only.
+			#calculator.row
+				.col-12
+					h2 Calculator
+			.row
+				.col-6
+					.field
+						h4 Salary component
+						.explainer Gross yearly salary in USD
+						div(style='position: relative;')
+							input#salary(type='text', placeholder='100,000', data-numbertype='dollar', data-decimals='0', style='padding-left: 22px; width: 190px;')
+							span(style='position: absolute; left: 2px; top: 7px; ') $
+					.field
+						h4 Equity component
+						.explainer Stock options granted, vested over 4 years
+						.parameter
+							input#options(type='text', list='optionsSuggestions', placeholder='10,000', data-numbertype='regular', data-decimals='0')
+							datalist#optionsSuggestions
+								option(value='5,000')
+								option(value='10,000')
+								option(value='15,000')
+								option(value='20,000')
+								option(value='50,000')
+								option(value='100,000')
+				.col-6
+					.field
+						h4 Expected company valuation
+						.explainer The value at which !{company} will exit
+						div(style='display: flex;')
+							input#valuation(type='range', data-type='log', data-min='10000000', data-max='50000000000', min='0', max='100', value='19', data-numbertype='bigdollar', data-decimals='0')
+							span#valuation-display.range-display $50m
+					.field
+						h4 Expected additional dilution
+						.explainer Share owned by future investors
+						div(style='display: flex;')
+							input#dilution(type='range', data-type='linear', data-min='0', data-max='60', min='0', max='60', value='20', data-numbertype='percent', data-decimals='0')
+							span#dilution-display.range-display 20%
+			.row
+				.col-6
+					.field
+						h4 Strike price
+						.explainer Price at which you can purchase your options
+						.metric
+							span#strike-price(data-numbertype='dollar', data-decimals='2')
+					.field
+						h4 Final value of one share
+						.explainer Expected valuation / final # of shares
+						#parameter.metric
+							span#final-share-value(data-numbertype='dollar', data-decimals='2')
+				.col-6
+					.field
+						h4 Number of fully diluted shares
+						.explainer Existing shares at the time of the offer
+						.metric
+							span#nb-of-shares(data-numbertype='regular', data-decimals='0')
+					.field
+						h4 Spread of your options
+						.explainer Final share value - your strike price
+						#parameter.metric
+							span#spread(data-numbertype='dollar', data-decimals='2')
+			.row
+				.col-6
+					h4 Package value
+					br
+					.explainer After 4 years
+					table.sum
+						tr
+							td from salary
+							td#output-overall-salary(data-numbertype='dollar', data-decimals='0') 0
+						tr
+							td from equity
+							td#output-overall-stock(data-numbertype='dollar', data-decimals='0') 0
+						tr
+							td total
+							td#output-overall-both(data-numbertype='dollar', data-decimals='0') 0
+				.col-6
+					h4  
+					br
+					.explainer Yearly
+					table.sum
+						tr
+							td from salary
+							td#output-yearly-salary(data-numbertype='dollar', data-decimals='0') 0
+						tr
+							td from equity
+							td#output-yearly-stock(data-numbertype='dollar', data-decimals='0') 0
+						tr
+							td total
+							td#output-yearly-both(data-numbertype='dollar', data-decimals='0') 0
+			.row
+				#footer.col-12
+					| • 2017
+		script(type='text/javascript', src='model.js')
+		script.
+			$('#footer.col-12').prepend(company_toupper.toUpperCase()+' ')

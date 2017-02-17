@@ -17,9 +17,9 @@ There are 5 setings you can setup in your `.env` file: USERNAME and PASSWORD for
 ```
 USERNAME=username
 PASSWORD=password
-COMPANY\_NAME=company
-STRIKE\_PRICE=0.01
-NB\_FULLY\_DILUTED\_SHARES=123456789
+COMPANY_NAME=company
+STRIKE_PRICE=0.01
+NB_FULLY_DILUTED_SHARES=123456789
 ```
 
 You can pre-populate the yearly salary and number of options fields by passing arguments to the URL to share package specifications directly:

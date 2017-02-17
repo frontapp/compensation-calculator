@@ -12,7 +12,7 @@ It is designed to both give them an overview of what they should expect given th
 
 ## Configuration
 
-There are 5 setings you can setup in your `.env` file: USERNAME and PASSWORD for basic authentication, COMPANY\_NAME and finally informations found in the most recent 409A valuation:
+There are 5 settings you can setup in your `.env` file: USERNAME and PASSWORD for basic authentication, COMPANY\_NAME and finally informations found in the most recent 409A valuation:
 
 ```
 USERNAME=username

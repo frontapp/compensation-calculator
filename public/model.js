@@ -86,6 +86,9 @@ function updateModel() {
 	var valuation = logSlider($('#valuation'));
 	var dilution = logSlider($('#dilution'));
 	var salary = parseFloat($('#salary').val().replace(/,/g, ''));
+	var strikePrice = parseFloat($('#strike-price').val().replace(/,/g, ''));
+	var nbOfShares = parseFloat($('#nb-of-shares').val().replace(/,/g, ''));
+
 
 	var finalShareValue = (1-(dilution/100))*valuation/nbOfShares;
 	var spread = finalShareValue-strikePrice
@@ -109,8 +112,7 @@ function updateModel() {
 	$('#output-overall-salary').text( formatNumbers( outputOverallSalary, $('#output-overall-salary') ) );
 	$('#output-overall-both').text( formatNumbers( outputOverallBoth, $('#output-overall-both') ) );
 
-	$('#strike-price').text( formatNumbers( strikePrice, $('#strike-price') ) );
-	$('#nb-of-shares').text( formatNumbers( nbOfShares, $('#nb-of-shares') ) );
+
 }
 
 function formatInt(str) {
@@ -121,16 +123,11 @@ function formatInt(str) {
 }
 
 function init() {
-	var urlstring = window.location.search.substring(1);
-	var parameters = urlstring.split("&");
+	$('#salary').val((0).toLocaleString());
+	$('#options').val((0).toLocaleString());
+	$('#strike-price').val((0.05).toLocaleString());
+	$('#nb-of-shares').val((100000000).toLocaleString());
 
-	var values = {};
-	for (i=0;i<parameters.length;i++) {
-		var pair = parameters[i].split("=");
-		values[pair[0]] = pair[1];
-	}
-	$('#salary').val(formatInt(values["salary"]));
-	$('#options').val(formatInt(values["options"]));
 };
 
 init();
@@ -138,6 +135,9 @@ updateModel();
 
 $('input').on('input', updateModel);
 $('input[type="text"]').on('input', function() {
+	if ($(this).attr('id') === 'strike-price'){
+		return;
+	}
     var n = formatInt($(this).val());
     return $(this).val(n);
 });

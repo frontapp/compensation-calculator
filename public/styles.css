@@ -10,6 +10,16 @@ body {
   padding-bottom: 50px;
 }
 
+a {
+  font-weight: 600;
+  color: #FC7073;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .wrapper {
   margin: 0 auto;
   width: 90%;

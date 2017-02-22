@@ -16,12 +16,15 @@
     <div class="container">
       <div id="instructions" class="row">
         <div class="col-12">
+          <h2>What is this</h2>
+          <p>This is a tool we built at <a href="https://frontapp.com/">Front</a> to improve the level of transparency we provide to candidates whom we end up making an offer to. If this sounds like a company you'd like to work at, check out our <a href="https://frontapp.com/jobs">open job positions</a>!</p>
+          <br>
+          <br>
           <h2>How it works</h2>
           <p>You can manipulate the values in the calculator below. This will help you estimate the value of your equity package based on various scenarios.</p>
           <p>Account for some dilution in future rounds of funding.</p>
           <p>Please note that this document is not a guarantee of anything, it is only a tool to help you estimate the potential value of your equity.</p>
           <p>This tool doesn't account for taxes, and we cannot give you financial advice on that matter; for that, you should consult with a specialist.</p>
-          <p>This document is confidential and for your personal use only.</p>
         </div>
       </div>
       <div id="calculator" class="row">
@@ -96,7 +99,7 @@
           </div>
           <div class="field">
             <h4>Spread of your options</h4>
-            <div class="explainer">Final share value - your strike price</div>
+            <div class="explainer">Final share value minus your strike price</div>
             <div id="parameter" class="metric"><span id="spread" data-numbertype="dollar" data-decimals="2"></span></div>
           </div>
         </div>
@@ -140,9 +143,18 @@
         </div>
       </div>
       <div class="row">
-        <div id="footer" class="col-12">FRONT • 2017</div>
+        <div id="footer" class="col-12">FrontApp, Inc. • 2017</div>
       </div>
     </div>
     <script type="text/javascript" src="model.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-45747368-6', 'auto');
+      ga('send', 'pageview');
+    </script>
   </body>
 </html>

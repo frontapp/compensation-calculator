@@ -73,8 +73,48 @@ function logSlider(slider){
 	var mini = parseFloat(slider.data('min'));
 	var maxi = parseFloat(slider.data('max'));
 	var pos = slider.val();
-	if (slider.data('type')=='log'){
-		return Math.pow( mini, (100-pos)/(100) )*Math.pow( maxi, (pos)/(100) );
+	// var slider_max = slider.attr('max');
+	if (slider.data('type')==='log'){
+		switch(pos){
+			case "0":
+				return 10000000;
+				break;
+			case "1":
+				return 25000000;
+				break;
+			case "2":
+				return 50000000;
+				break;
+			case "3":
+				return 100000000;
+				break;
+			case "4":
+				return 250000000;
+				break;
+			case "5":
+				return 500000000;
+				break;
+			case "6":
+				return 1000000000;
+				break;
+			case "7":
+				return 2000000000;
+				break;
+			case "8":
+				return 5000000000;
+				break
+			case "9":
+				return 10000000000;
+				break;
+			case "10":
+				return 20000000000;
+				break;
+			case "11":
+				return 50000000000;
+				break;
+
+		}
+		// return Math.pow( mini, (slider_max-pos)/(slider_max) )*Math.pow( maxi, (pos)/(slider_max) );
 	}
 	else {
 		return slider.val();
@@ -87,10 +127,12 @@ function updateModel() {
 	var dilution = logSlider($('#dilution'));
 	var salary = parseFloat($('#salary').val().replace(/,/g, ''));
 	var strikePrice = parseFloat($('#strike-price').val().replace(/,/g, ''));
+	strikePrice = isFinite(strikePrice) ? strikePrice : 0.0;
 	var nbOfShares = parseFloat($('#nb-of-shares').val().replace(/,/g, ''));
 
 
 	var finalShareValue = (1-(dilution/100))*valuation/nbOfShares;
+	finalShareValue = isFinite(finalShareValue) ? finalShareValue : 0.0;
 	var spread = finalShareValue-strikePrice
 
 	$('#final-share-value').text(formatNumbers(finalShareValue, $('#final-share-value')));
@@ -125,8 +167,8 @@ function formatInt(str) {
 function init() {
 	$('#salary').val((0).toLocaleString());
 	$('#options').val((0).toLocaleString());
-	$('#strike-price').val((0.05).toLocaleString());
-	$('#nb-of-shares').val((100000000).toLocaleString());
+	$('#strike-price').val((0.00).toLocaleString());
+	$('#nb-of-shares').val((0).toLocaleString());
 
 };
 
@@ -136,10 +178,17 @@ updateModel();
 $('input').on('input', updateModel);
 $('input[type="text"]').on('input', function() {
 	if ($(this).attr('id') === 'strike-price'){
-		return;
-	}
+		if (!$(this).val()) {
+			return updateModel();
+		} else return;
+	};
+	var start = this.selectionStart,
+		end = this.selectionEnd,
+		original_length = $(this).val().length;
     var n = formatInt($(this).val());
-    return $(this).val(n);
+    var pad = n.length === original_length ? 0 : 1;
+    $(this).val(n);
+    return this.setSelectionRange(start + pad, end + pad);
 });
 $('input[type="range"]').on('input', function () {
 	var disp = $(this).attr('id');

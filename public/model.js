@@ -159,16 +159,16 @@ function updateModel() {
 
 function formatInt(str) {
 	if (!str)
-		return (0).toLocaleString();
+		return (0).toLocaleString("en-US");
 	
-	return (parseInt(str.replace(/\D/g,''),10) ||  0).toLocaleString();
+	return (parseInt(str.replace(/\D/g,''),10) ||  0).toLocaleString("en-US");
 }
 
 function init() {
-	$('#salary').val((0).toLocaleString());
-	$('#options').val((0).toLocaleString());
-	$('#strike-price').val((0.00).toLocaleString());
-	$('#nb-of-shares').val((0).toLocaleString());
+	$('#salary').val((0).toLocaleString("en-US"));
+	$('#options').val((0).toLocaleString("en-US"));
+	$('#strike-price').val((0.00).toLocaleString("en-US"));
+	$('#nb-of-shares').val((0).toLocaleString("en-US"));
 
 };
 

@@ -63,6 +63,11 @@ p {
   max-width: 680px;
 }
 
+header div {
+  color: white;
+  font-size: 1.1em;
+}
+
 .field {
   margin-bottom: 30px;
 }

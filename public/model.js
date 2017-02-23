@@ -73,7 +73,6 @@ function logSlider(slider){
 	var mini = parseFloat(slider.data('min'));
 	var maxi = parseFloat(slider.data('max'));
 	var pos = slider.val();
-	// var slider_max = slider.attr('max');
 	if (slider.data('type')==='log'){
 		switch(pos){
 			case "0":
@@ -114,7 +113,6 @@ function logSlider(slider){
 				break;
 
 		}
-		// return Math.pow( mini, (slider_max-pos)/(slider_max) )*Math.pow( maxi, (pos)/(slider_max) );
 	}
 	else {
 		return slider.val();
@@ -155,14 +153,24 @@ function updateModel() {
 	$('#output-overall-both').text( formatNumbers( outputOverallBoth, $('#output-overall-both') ) );
 
 
+};
+
+function reverse(s){
+	return s.split("").reverse().join("");
 }
 
 function formatInt(str) {
 	if (!str)
 		return (0).toLocaleString("en-US");
-	
-	return (parseInt(str.replace(/\D/g,''),10) ||  0).toLocaleString("en-US");
-}
+	var leadingZeros = 0;
+	while (leadingZeros < str.replace(/\D/g,'').length & parseInt(str.replace(/\D/g,''),10) === parseInt(str.replace(/\D/g,'').substr(1,1+leadingZeros),10)) {
+		leadingZeros+= 1;
+	};
+	if ( leadingZeros > 0){
+		return(reverse(str.replace(/\D/g,'')).match(/.{1,3}/g).reverse().join(","))
+	}
+	else return (parseInt(str.replace(/\D/g,''),10) ||  0).toLocaleString("en-US");
+};
 
 function init() {
 	$('#salary').val((0).toLocaleString("en-US"));

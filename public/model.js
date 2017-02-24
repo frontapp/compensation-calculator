@@ -172,22 +172,22 @@ function reverse(s){
 
 function formatInt(str) {
 	if (!str)
-		return (0).toLocaleString("en-US");
+		return ("").toLocaleString("en-US");
 	var leadingZeros = 0;
 	while (leadingZeros < str.replace(/\D/g,'').length & parseInt(str.replace(/\D/g,''),10) === parseInt(str.replace(/\D/g,'').substr(1,1+leadingZeros),10)) {
 		leadingZeros+= 1;
 	};
 	if ( leadingZeros > 0){
-		return(reverse(str.replace(/\D/g,'')).match(/.{1,3}/g).reverse().join(","))
+		return(reverse(reverse(str).replace(/\D/g,'')).match(/.{1,3}/g).join(","))
 	}
 	else return (parseInt(str.replace(/\D/g,''),10) ||  0).toLocaleString("en-US");
 };
 
 function init() {
-	$('#salary').val((0).toLocaleString("en-US"));
-	$('#options').val((0).toLocaleString("en-US"));
-	$('#strike-price').val((0.00).toLocaleString("en-US"));
-	$('#nb-of-shares').val((0).toLocaleString("en-US"));
+	$('#salary').val(("").toLocaleString("en-US"));
+	$('#options').val(("").toLocaleString("en-US"));
+	$('#strike-price').val(("").toLocaleString("en-US"));
+	$('#nb-of-shares').val(("").toLocaleString("en-US"));
 
 };
 

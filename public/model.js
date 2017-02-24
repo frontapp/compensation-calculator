@@ -91,36 +91,42 @@ function logSlider(slider){
 				return 250000000;
 				break;
 			case "5":
-				return 500000000;
+				return 350000000;
 				break;
 			case "6":
+				return 500000000;
+					break;
+			case "7":
+				return 750000000;
+					break;
+			case "8":
 				return 1000000000;
 				break;
-			case "7":
+			case "9":
 				return 2000000000;
 				break;
-			case "8":
+			case "10":
 				return 5000000000;
 				break
-			case "9":
+			case "11":
 				return 7500000000;
 				break;
-			case "10":
+			case "12":
 				return 10000000000;
 				break;
-			case "11":
+			case "13":
 				return 15000000000;
 				break;
-			case "12":
+			case "14":
 				return 20000000000;
 				break;
-			case "13":
+			case "15":
 				return 30000000000;
 				break;
-			case "14":
+			case "16":
 				return 40000000000;
 				break;
-			case "15":
+			case "17":
 				return 50000000000;
 				break;
 		}

@@ -45,9 +45,27 @@ header {
 
 h1 {
   font-size: 50px;
-  padding: 75px 0;
+  padding-top: 75px;
   color: white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.20);
+}
+
+.subh1 {
+  margin: 0;
+  color: white;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
+  padding-bottom: 75px;
+}
+
+.subh1 a {
+  color: white;
+}
+
+.subh1 svg path {
+  fill: white;
 }
 
 h2 {

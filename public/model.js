@@ -103,15 +103,26 @@ function logSlider(slider){
 				return 5000000000;
 				break
 			case "9":
-				return 10000000000;
+				return 7500000000;
 				break;
 			case "10":
-				return 20000000000;
+				return 10000000000;
 				break;
 			case "11":
+				return 15000000000;
+				break;
+			case "12":
+				return 20000000000;
+				break;
+			case "13":
+				return 30000000000;
+				break;
+			case "14":
+				return 40000000000;
+				break;
+			case "15":
 				return 50000000000;
 				break;
-
 		}
 	}
 	else {

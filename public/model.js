@@ -45,7 +45,7 @@ function formatNumbers(x, tag){
 					return "$" + String(numberWithCommas(round(x/1000000, 0))) + "m"
 				}
 				else if (x>=1000000000){
-					return "$" + String(numberWithCommas(round(x/1000000000, 1))) + "bn"
+					return "$" + String(numberWithCommas(round(x/1000000000, 2))) + "bn"
 				}
 				else return "$" + String(numberWithCommas(round(x, decimals)))
 			}
@@ -95,39 +95,111 @@ function logSlider(slider){
 				break;
 			case "6":
 				return 500000000;
-					break;
+				break;
 			case "7":
 				return 750000000;
-					break;
+				break;
 			case "8":
 				return 1000000000;
 				break;
 			case "9":
-				return 2000000000;
+				return 1250000000;
 				break;
 			case "10":
-				return 5000000000;
-				break
+				return 1500000000;
+				break;
 			case "11":
-				return 7500000000;
+				return 1750000000;
 				break;
 			case "12":
-				return 10000000000;
+				return 2000000000;
 				break;
 			case "13":
-				return 15000000000;
+				return 3000000000;
 				break;
 			case "14":
-				return 20000000000;
+				return 4000000000;
 				break;
 			case "15":
-				return 30000000000;
+				return 5000000000;
 				break;
 			case "16":
-				return 40000000000;
+				return 6000000000;
 				break;
 			case "17":
+				return 7000000000;
+				break;
+			case "18":
+				return 8000000000;
+				break;
+			case "19":
+				return 9000000000;
+				break;
+			case "20":
+				return 10000000000;
+				break;
+			case "21":
+				return 11000000000;
+				break;
+			case "22":
+				return 12000000000;
+				break;
+			case "23":
+				return 13000000000;
+				break;
+			case "24":
+				return 14000000000;
+				break;
+			case "25":
+				return 15000000000;
+				break;
+			case "26":
+				return 16000000000;
+				break;
+			case "27":
+				return 17000000000;
+				break;
+			case "28":
+				return 18000000000;
+				break;
+			case "29":
+				return 19000000000;
+				break;
+			case "30":
+				return 20000000000;
+				break;
+			case "31":
+				return 25000000000;
+				break;
+			case "32":
+				return 30000000000;
+				break;
+			case "33":
+				return 35000000000;
+				break;
+			case "34":
+				return 40000000000;
+				break;
+			case "35":
+				return 45000000000;
+				break;
+			case "36":
 				return 50000000000;
+				break;
+			case "37":
+				return 60000000000;
+				break;
+			case "38":
+				return 70000000000;
+				break;
+			case "39":
+				return 80000000000;
+				break;
+			case "40":
+				return 90000000000;
+				break;
+			case "41":
+				return 100000000000;
 				break;
 		}
 	}
